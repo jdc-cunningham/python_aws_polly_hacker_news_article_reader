@@ -1,7 +1,10 @@
-### Read Top 10 Articles from Hacker News out loud with Python, AWS Polly and Raspberry Pi
+# Read Top 10 Articles from Hacker News out loud with Python, AWS Polly and Raspberry Pi
 Grabs top 10 articles from Hacker News and passes them to Amazon Polly with basic formatting (limit to 1500 chars) and plays through Raspberry Pi PWM audio output
 
-# requirements
+## video
+https://www.youtube.com/watch?v=fWfatVYML9o
+
+## requirements
 * AWS Polly Account (free 5M characters per month)
   * Need AWSCLI with access key, secret key, region
 * Raspberry Pi connected to internet
@@ -10,12 +13,12 @@ Grabs top 10 articles from Hacker News and passes them to Amazon Polly with basi
 
 Currently this runs on Python 2.7.9 on Raspbian, but I was developing it on Python 3.7, in particular the HTML.Parser to unescape HTML may be problematic.
 
-# Intro
+## Intro
 After getting a taste of Amazon Polly's capability (text to speech synthesis) I wanted to make something that reads Hacker News' articles out loud. In general I like to read the comments not so much the link itself. The links also bring around the unknown page structure for scraping which is not my intent. So this script runs through crontab every hour and checks if my desktop is connected to the local network (if I'm home) as this desktop is usually off when I'm not home.
 
 I have to be honest I had no idea what I was doing, I initially wanted to develop this with JavaScript but that didn't make sense as far as running it "back end" or "headless" and I'm not speaking for Node I currently don't use Node. I meant the regular client side JavaScript which would require a front end page being open to run the script... so I switched to Python entirely which I've never really used Python before so it was cool to learn some of it. I also apologize before hand if somehting looks really stupid like the url replacement. Initially the synthesizer would read every character in a URL outloud which quickly became annoying. There are also other random quirks to correct like reading a -> out loud as "minus greater than" or something like that.
 
-# General steps
+## General steps
 1) Get the data from Hacker News' API
   * get list of top stories: https://hacker-news.firebaseio.com/v0/topstories.json (outputs list of ids)
   * get title of story from individual story JSON https://hacker-news.firebaseio.com/v0/item/id.json (pass in id from above)
@@ -33,12 +36,12 @@ I have to be honest I had no idea what I was doing, I initially wanted to develo
   * the audio is surprisingly good I mean it's not playing music just speech but good enough, had to up the volume using a command amixer sset PCM,0 200%
   * link: https://learn.adafruit.com/adding-basic-audio-ouput-to-raspberry-pi-zero/pi-zero-pwm-audio
   
-# Closing thoughts
+## Closing thoughts
 
 Yeah it's pretty cool, I got all of my "goals" accomplished, I had to build a lot of random small things and then join it together I apologize if the code looks trash (it most likely does) I am new to Python need to improve/optimize code in general.
 
 It's kind of funny, now that I have it I don't know if I actually want to keep it. The voice kind of drones on, in my opinion the Kendra voice ID is good, I do have a preference for female voices. But the "Lexicons" could use work but I have no idea about that at this time. In particular the questions, has that general "raise voice at the end" pattern and it doens't work, usually I just leave out question marks in a question but that's not implemented in this code.
 
-# Files
+## Files
 Aside from all of the imports generally there are just two files, the main file read-articles-2.7.9-cp2.py and findurls.py to replace full urls with the word 'link'
 
