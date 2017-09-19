@@ -105,7 +105,7 @@ if response == 0:
             continue
 
     # read and sort sound-files directory
-    sound_files = os.listdir('sound-files')
+    sound_files = os.listdir('sound-files2')
     new_list = []
 
     for sound_file in sound_files:
