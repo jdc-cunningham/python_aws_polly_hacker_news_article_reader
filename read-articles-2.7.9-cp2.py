@@ -10,7 +10,7 @@ if response == 0:
     import json
     # import html
     import HTMLParser
-    parser = HTMLParser.HTMLParser()
+    parser = HTMLParser.HTMLParser() # dependent on python version
     import re
     import pygame
     from boto3 import Session
@@ -28,9 +28,9 @@ if response == 0:
     # Get data from HN, limit to 10 articles
 
     # get top articles
-    article_ids = [0] * 10 
+    article_ids = []
     get_top_article_ids = requests.get("https://hacker-news.firebaseio.com/v0/topstories.json")
-    python_list = [0] * 10
+    python_list = []
     python_list = (get_top_article_ids.content.decode('utf-8'))
     # remove [ and ]
     s_clean_left = python_list.replace('[','')
