@@ -2,7 +2,7 @@
 Grabs top 10 articles from Hacker News and passes them to Amazon Polly with basic formatting (limit to 1500 chars) and plays through Raspberry Pi PWM audio output
 
 ## video
-https://www.youtube.com/watch?v=fWfatVYML9o
+https://www.youtube.com/watch?v=fWfatVYML9o?t=23s
 
 ## requirements
 * AWS Polly Account (free 5M characters per month)
