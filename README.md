@@ -52,9 +52,6 @@ Yeah it's pretty cool, I got all of my "goals" accomplished, I had to build a lo
 
 It's kind of funny, now that I have it I don't know if I actually want to keep it. The voice kind of drones on, in my opinion the Kendra voice ID is good, I do have a preference for female voices. But the "Lexicons" could use work but I have no idea about that at this time. In particular the questions, has that general "raise voice at the end" pattern and it doens't work, usually I just leave out question marks in a question but that's not implemented in this code.
 
-## Files
-Aside from all of the imports generally there are just two files, the main file read-articles-2.7.9-cp2.py and findurls.py to replace full urls with the word 'link'
-
 ## Update - 09-22-2017
 
 I modified the main script a lot namely:
