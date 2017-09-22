@@ -391,3 +391,10 @@ if response == 0:
     # after synth write to previous_articles.txt
     have_synth.update(previous_articles_new)
     json.dump(have_synth, open('previous_articles.txt', 'w'))
+    
+else:
+    
+    # reset previous_files.txt
+    empy_dict = {}
+    # write empty json
+    json.dump(empty_dict, open('previous_articles.txt', 'w'))
