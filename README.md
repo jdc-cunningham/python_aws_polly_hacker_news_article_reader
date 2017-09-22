@@ -47,3 +47,15 @@ It's kind of funny, now that I have it I don't know if I actually want to keep i
 ## Files
 Aside from all of the imports generally there are just two files, the main file read-articles-2.7.9-cp2.py and findurls.py to replace full urls with the word 'link'
 
+## Update - 09-22-2017
+
+I modified the main script a lot namely:
+* changed from notion of "top 10 articles" to "some article comments"
+* save previously read article_id's and comment_id's to a file to not read again unless the comment changed
+* added predefined-sounds eg. text that shouldn't be synthesized over and over
+
+Overall though, after my free year trial of AWS runs out I'm not sure if I'll keep this running (actually pay for it), I tried to reduces calls with the change check (most recent update 09-20-2017) but this time it goes beyond the first 10 articles.
+
+### Note
+
+The numbering is misleading, I don't actually match the article number on Hacker News, it's ordered according to the same start-to-finish however some articles may not have any comments yet, and also if it has already been read alout before, it won't be read again (if no change) so this spot would be skipped over, the counter is just a general iterator.
