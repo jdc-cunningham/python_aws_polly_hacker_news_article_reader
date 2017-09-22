@@ -13,7 +13,7 @@ https://www.youtube.com/watch?v=fWfatVYML9o?t=23s
   * Low pass filter circuit (parts) if using Raspberry Pi Zero (no headphone jack) need resistor, capacitor, film capacitor
 * Python Boto3 sdk
 
-# notes on AWS CLI
+## notes on AWS CLI
 I should go over the AWS CLI part as this was confusing to me, mostly referred to their docs
 * Create an IAM User (this link if you're logged in: https://console.aws.amazon.com/iam/home)
   * the user is in a group
