@@ -13,6 +13,22 @@ https://www.youtube.com/watch?v=fWfatVYML9o?t=23s
   * Low pass filter circuit (parts) if using Raspberry Pi Zero (no headphone jack) need resistor, capacitor, film capacitor
 * Python Boto3 sdk
 
+# notes on AWS CLI
+I should go over the AWS CLI part as this was confusing to me, mostly referred to their docs
+* Create an IAM User (this link if you're logged in: https://console.aws.amazon.com/iam/home)
+  * the user is in a group
+  * User has full Amazon Polly Permissions
+  * Create your access key/secret key *note* the key only appears once so store it somewhere safe
+  * You can create more access/secret keys
+* make sure your AWS CLI is configured
+  * install it by terminal
+  * set the details (link here: http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-quick-configuration)
+  * another thing I ran into was the default is [default] or something like that regarding the config file eg. ~/.aws/config
+  * other possible file is ~/.aws/credentials
+  * set that to adminuser or whatever user you set (in the code here I use adminuser)
+* Full server.py Amazon Polly Python script link: http://docs.aws.amazon.com/polly/latest/dg/example-Python-server-code.html
+  * this is the script that I got some code out of that produces the audio file
+
 Currently this runs on Python 2.7.9 on Raspbian, but I was developing it on Python 3.7, in particular the HTML.Parser to unescape HTML may be problematic.
 
 ## Files
