@@ -15,6 +15,14 @@ https://www.youtube.com/watch?v=fWfatVYML9o?t=23s
 
 Currently this runs on Python 2.7.9 on Raspbian, but I was developing it on Python 3.7, in particular the HTML.Parser to unescape HTML may be problematic.
 
+## Files
+* hn_article_top_comment_reader.py (main file)
+* findurls.py (replaces full urls eg. http://somewebsite.com to the word link)
+
+## Note:
+
+This is intended to be ran by your crontab, and it checks if a certain device is currently connected to your network. It pings the local ip, don't forget to change that, it's blank by default so this script will not run. It's at the very top of the hn_article_top_comment_reader.py file
+
 ## Intro
 After getting a taste of Amazon Polly's capability (text to speech synthesis) I wanted to make something that reads Hacker News' articles out loud. In general I like to read the comments not so much the link itself. The links also bring around the unknown page structure for scraping which is not my intent. So this script runs through crontab every hour and checks if my desktop is connected to the local network (if I'm home) as this desktop is usually off when I'm not home.
 
