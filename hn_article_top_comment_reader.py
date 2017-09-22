@@ -1,5 +1,6 @@
 # import for ping, file writing
 import os
+import json
 
 # do a check first if dekstop is online
 hostname = '192.XXX.XXX.XXX'
@@ -8,7 +9,6 @@ if response == 0:
 
     # import for data grab
     import requests
-    import json
     import HTMLParser
     parser = HTMLParser.HTMLParser()
     import re
@@ -395,6 +395,6 @@ if response == 0:
 else:
     
     # reset previous_files.txt
-    empy_dict = {}
+    empty_dict = {}
     # write empty json
     json.dump(empty_dict, open('previous_articles.txt', 'w'))
