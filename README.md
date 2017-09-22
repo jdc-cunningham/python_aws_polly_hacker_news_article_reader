@@ -80,3 +80,9 @@ Overall though, after my free year trial of AWS runs out I'm not sure if I'll ke
 ### Note
 
 The numbering is misleading, I don't actually match the article number on Hacker News, it's ordered according to the same start-to-finish however some articles may not have any comments yet, and also if it has already been read alout before, it won't be read again (if no change) so this spot would be skipped over, the counter is just a general iterator.
+
+### Caution
+
+Currently the previous_articles.txt has no check to reset it, I gotta think about it, what check to use to reset the previous_articles.txt file It'll just keep growing if it's not reset every now and then. Possibly if there are 0 new content reset to empty.
+
+Actually I'll just add it as an else to the if connected section of the main script. If the script is not supposed to run, reset the file.
