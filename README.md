@@ -1,6 +1,8 @@
 # Read Top 10 Articles from Hacker News out loud with Python, AWS Polly and Raspberry Pi
 Grabs top 10 articles from Hacker News and passes them to Amazon Polly with basic formatting (limit to 1500 chars) and plays through Raspberry Pi PWM audio output
 
+![Raspberry Pi Zero with PWM Audio Output through GPIO pin 13, mono parallel wired](https://raw.githubusercontent.com/jdc-cunningham/python_aws_polly_hacker_news_article_reader/master/20170922_045714.jpg)
+
 ## video
 https://www.youtube.com/watch?v=fWfatVYML9o?t=23s
 
