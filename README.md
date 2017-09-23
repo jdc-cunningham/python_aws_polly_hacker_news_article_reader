@@ -86,3 +86,9 @@ The numbering is misleading, I don't actually match the article number on Hacker
 Currently the previous_articles.txt has no check to reset it, I gotta think about it, what check to use to reset the previous_articles.txt file It'll just keep growing if it's not reset every now and then. Possibly if there are 0 new content reset to empty.
 
 Actually I'll just add it as an else to the if connected section of the main script. If the script is not supposed to run, reset the file.
+
+### Another caution
+
+It just occurred to me if the previous_articles.txt is not reset (reference ip is still connected), and previous_articles.txt grows when after each article read run, adds the new article_id:artice_top_comment_id pair... if two article_id's exist with different comment id's I think that would still run as it only runs the first match... hmm
+
+Not sure can solve it just working on something else at this time.
