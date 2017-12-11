@@ -57,3 +57,7 @@ Both ```web-interface.html``` and ```play-endpoint.php``` are owned by pi:pi and
 Everything should be owned by pi:pi and have 644 for files and 755 for directories
 
 This is because the back-end process is started by the Raspberry Pi rather than Apache/front-end.
+
+# MAKE SURE
+
+To check on the previous_articles.txt file, in the original version when the ip check fails (don't run), it would clear this file. I haven't put that case anywhere in this code so it will just keep growing in size.
