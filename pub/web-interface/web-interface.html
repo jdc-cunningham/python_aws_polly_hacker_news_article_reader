@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+
+            /* general layout rules */
+            .flex {
+                display: flex;
+            }
+            .fcc {
+                align-items: center;
+                justify-content: center;
+            }
+            .fdc {
+                flex-direction: column;
+            }
+
+            /* web interface */
+            #main-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+                #interface-container {
+                    position: relative;
+                    width: auto;
+                    height: auto;
+                    cursor: pointer;
+                    padding: 10px;
+                }
+                    #y-combinator-icon {
+                        position: relative;
+                        width: 100px;
+                        height: 100px;
+                        background-color: #ff6600;
+                    }
+                        #large-y-white {
+                            color: white;
+                            font-size: 50px;
+                            font-weight: bold;
+                            font-family: monospace;
+                        }
+                    #playback-state {
+                        position: relative;
+                        margin-top: 15px;
+                    }
+                        #pbs-text {
+                            color: #ff6600;
+                            font-size: 24px;
+                            font-family: monospace;
+                        }
+        </style>
+    </head>
+    <body>
+        <div id="main-container" class="flex fcc">
+            <div id="interface-container" class="flex fcc fdc" title="click to play articles">
+                <div id="y-combinator-icon" class="flex fcc">
+                    <h1 id="large-y-white">Y</h1>
+                </div>
+                <div id="playback-state">
+                    <h2 id="pbs-text">Click to read articles</h2>
+                </div>
+            </div>
+        </div>
+        <script>
+            
+            // this requires PHP to receive the request from the web inteface to then command Python
+            const interface = document.getElementById('interface-container'),
+                  dispMsg = document.getElementById('pbs-text');
+
+            let playState = 'off',
+                commData = null;
+
+            function postAjax(url, data, success) {
+                var params = typeof data == 'string' ? data : Object.keys(data).map(
+                        function(k){ return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]) }
+                    ).join('&');
+                var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+                xhr.open('POST', url);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState>3 && xhr.status==200) { success(xhr.responseText); }
+                };
+                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send(params);
+                return xhr;
+            }
+
+            interface.addEventListener('click', function() {
+                
+                // logic is if reader is not running, play, but if it is running (server-side returns status), don't play
+                if (playState == 'off') {
+                    
+                    commData = 'play_command=play';
+
+                    postAjax('play-endpoint.php', commData, function(data) {
+                        let curState = JSON.parse(data).state;
+                        if (curState == 'hn reader currently playing') {
+                            dispMsg.innerText = 'Playback in progress';
+                        }
+                        else if (curState == 'hn reader started') {
+                            dispMsg.innerText = 'Playback started';
+                        }
+                    });
+                    
+                }
+
+            });
+
+        </script>
+    </body>
+</html>
