@@ -34,6 +34,19 @@
                 // exec('/usr/bin/python /home/pi/articleBot/hn_article_top_comment_reader_no_ip.py');
                 // shell_exec('/home/pi/articleBot/hn_article_top_comment_reader_no_ip.py');
                 $state_return['state'] = 'hn reader started';
+
+                // non-ending loop safety close
+                if ($play_state == 'no') {
+                    
+                    sleep(10); // in ten seconds update play_state.txt
+
+                    $myfile = fopen('play_state.txt', "w") or die("Unable to open file");
+                    $txt = "off";
+                    fwrite($myfile, $txt);
+                    fclose($myfile);
+                    
+                }
+
             }
             else if ($play_state == 'yes') {
                 error_log('if ran: yes');
